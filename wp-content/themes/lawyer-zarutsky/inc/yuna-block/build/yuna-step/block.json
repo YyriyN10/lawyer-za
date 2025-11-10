@@ -1,0 +1,153 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "yuna-blocks/step",
+  "version": "0.1.0",
+  "title": "Блок з перліком",
+  "icon": "index-card",
+  "category": "yuna-block-category",
+  "description": "Блок з перліком",
+  "example": {},
+  "attributes": {
+    "anchorId": {
+      "type": "string"
+    },
+    "blockName": {
+      "type": "string"
+    },
+    "topIndent": {
+      "enum": [
+        "indent-top-big",
+        "indent-top-small"
+      ],
+      "default": "indent-top-big",
+      "type": "string"
+    },
+    "bottomIndent": {
+      "enum": [
+        "indent-bottom-big",
+        "indent-bottom-small"
+      ],
+      "default": "indent-bottom-big",
+      "type": "string"
+    },
+    "blockTitle": {
+      "type": "string"
+    },
+    "blockSubTitle": {
+      "type": "string"
+    },
+    "blockSubText": {
+      "type": "string"
+    },
+    "btnContactColor": {
+      "enum": [
+        "golden-btn",
+        "transparent-btn"
+      ],
+      "default": "golden-btn",
+      "type": "string"
+    },
+    "btnContactText": {
+      "type": "string"
+    },
+    "btnContactAnchor": {
+      "type": "string"
+    },
+    "animationType": {
+      "enum": [
+        "fade",
+        "fade-up",
+        "fade-down",
+        "fade-left",
+        "fade-right",
+        "fade-up-right",
+        "fade-up-left",
+        "fade-down-right",
+        "fade-down-left",
+        "flip-up",
+        "flip-down",
+        "flip-left",
+        "flip-right",
+        "slide-up",
+        "slide-down",
+        "slide-left",
+        "slide-right",
+        "zoom-in",
+        "zoom-in-up",
+        "zoom-in-down",
+        "zoom-in-left",
+        "zoom-in-right",
+        "zoom-out",
+        "zoom-out-up",
+        "zoom-out-down",
+        "zoom-out-left",
+        "zoom-out-right"
+      ],
+      "default": "fade-up",
+      "type": "string"
+    },
+    "animationEasing": {
+      "enum": [
+        "linear",
+        "ease",
+        "ease-in",
+        "ease-out",
+        "ease-in-out",
+        "ease-in-back",
+        "ease-out-back",
+        "ease-in-out-back",
+        "ease-in-sine",
+        "ease-out-sine",
+        "ease-in-out-sine",
+        "ease-in-quad",
+        "ease-out-quad",
+        "ease-in-out-quad",
+        "ease-in-cubic",
+        "ease-out-cubic",
+        "ease-in-out-cubic",
+        "ease-in-quart",
+        "ease-out-quart",
+        "ease-in-out-quart"
+      ],
+      "default": "ease-out",
+      "type": "string"
+    },
+    "animationDuration": {
+      "type": "number",
+      "default": 300
+    },
+    "animationDelay": {
+      "type": "number",
+      "default": 100
+    }
+  },
+  "providesContext": {
+    "yuna/steps:btnContactColor": "btnContactColor",
+    "yuna/steps:btnContactText": "btnContactText",
+    "yuna/steps:btnContactAnchor": "btnContactAnchor",
+    "yuna/steps:animationType": "animationType",
+    "yuna/steps:animationEasing": "animationEasing",
+    "yuna/steps:animationDuration": "animationDuration",
+    "yuna/steps:animationDelay": "animationDelay"
+  },
+  "supports": {
+    "color": {
+      "background": true,
+      "text": true,
+      "heading": true,
+      "gradients": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "html": false
+  },
+  "textdomain": "yuna",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

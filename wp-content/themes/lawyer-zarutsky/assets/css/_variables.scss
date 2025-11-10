@@ -1,0 +1,31 @@
+
+/*--- FONTS ---*/
+
+:root{
+  --f-main: "Montserrat-Regular";
+  --f-M-SB: "Montserrat-SemiBold";
+  --f-TTFN-r: "TTFirsNeue-Regular";
+  --f-TTFN-m: "TTFirsNeue-Medium";
+  --f-TTFN-DB: "TTFirsNeue-DemiBold";
+}
+
+
+/*--- COLORS ---*/
+:root{
+  --color-white: #F4F4F4;
+  --color-white-bg: #FDFFFD;
+  --color-gray: #EBEBEB;
+  --color-dark-gray: #575757;
+  --color-black: #0F0F0F;
+  --color-gray-gradient: linear-gradient(180deg, rgba(29, 29, 29, 0.40) 0%, rgba(87, 87, 87, 0.24) 100%);
+}
+
+
+
+/*--- Grid ---*/
+
+@media (min-width: 1400px){
+  .container {
+    max-width: 1296px;
+  }
+}

@@ -1,0 +1,31 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+/* зону видно навіть коли вона порожня */
+.options-area {
+	height: 12px;
+	width: 12px;
+	position: relative;
+
+}
+
+/* робимо кнопку-аппендер завжди «клікабельною» і на виду */
+.yuna-option-appender {
+	height: 12px;
+	width: 12px;
+	margin-right: 70px;
+	display: inline-flex;
+	align-items: center;
+
+	/* інколи тема/плагіни приховують appender */
+	.block-editor-button-block-appender,
+	.block-list-appender {
+		display: inline-flex !important;
+	}
+}
+
+
+

@@ -1,0 +1,255 @@
+.site-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  transition: all 0.3s;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  &.fixed-header{
+    transform: translateY(-110%);
+  }
+
+  &.fixed-header-visible{
+    transform: translateY(0);
+    background-color: rgba(87, 87, 87, 0.8);
+  }
+
+  .content{
+    display: flex;
+    align-items: center;
+  }
+
+  .header-navigation{
+    @media(max-width: 575px){
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      min-height: 100vh;
+      z-index: 11;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      transition: all 0.3s;
+      transform: translateX(-110%);
+      overflow: auto;
+      background-color: rgba(87, 87, 87, 0.5);
+      backdrop-filter: blur(20px);
+      padding: 130px 100px 30px 12px;
+    }
+
+    &.open-menu{
+      transform: translateX(0);
+    }
+
+    .social-wrapper{
+      display: none;
+
+      @media(max-width: 992px){
+        display: flex;
+      }
+    }
+
+    .phones-wrapper{
+      display: none;
+
+      @media(max-width: 992px){
+        display: block;
+      }
+    }
+
+    .emails-wrapper{
+      display: none;
+
+      @media(max-width: 992px){
+        display: block;
+      }
+    }
+  }
+
+  .main-menu{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 40px;
+
+    @media(max-width: 992px){
+      gap: 30px;
+    }
+
+    @media(max-width: 767px){
+      gap: 20px;
+    }
+
+    @media(max-width: 575px){
+      display: grid;
+    }
+
+    li{
+      list-style: none;
+
+      a{
+        transition: all 0.3s;
+        font-size: 16px;
+        font-family: var(--f-TTFN-r);
+        color: var(--color-white);
+        letter-spacing: 0.02em;
+
+        @media(max-width: 767px){
+          font-size: 14px;
+        }
+
+        @media(max-width: 575px){
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .menu-btn{
+    display: none;
+    background-color: rgba(0,0,0,0);
+    padding: 0;
+    margin: 0;
+    border: none;
+    position: relative;
+    z-index: 20;
+
+    @media(max-width: 575px){
+      display: grid;
+      gap: 5px;
+      width: 30px;
+    }
+
+    span{
+      transition: all 0.3s;
+      height: 2px;
+      display: block;
+      background-color: var(--color-white);
+
+      &:nth-child(1){
+        width: 75%;
+      }
+
+      &:nth-child(2){
+        width: 50%;
+      }
+
+      &:nth-child(3){
+        width: 100%;
+      }
+    }
+
+    &.active{
+      span{
+        &:nth-child(1){
+          width: 100%;
+        }
+
+        &:nth-child(2){
+          width: 25%;
+        }
+
+        &:nth-child(3){
+          width: 50%;
+        }
+      }
+    }
+
+
+  }
+
+  .lang-wrapper{
+    margin-left: auto;
+
+    &.mobile-lang{
+      display: none;
+
+      @media(max-width: 992px){
+        display: block;
+      }
+    }
+    &.desktop-lang{
+      position: relative;
+
+      @media(max-width: 992px){
+        display: none;
+      }
+    }
+
+    .page-lang{
+      padding: 0;
+      border: none;
+      background-color: rgba(0,0,0,0);
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+
+      .lang-name{
+        position: relative;
+        text-transform: uppercase;
+        transition: all 0.3s;
+        margin-right: 4px;
+        color: var(--color-white);
+        letter-spacing: 0.02em;
+        font-size: 16px;
+        font-family: var(--f-TTFN-r);
+
+        @media(max-width: 767px){
+          font-size: 14px;
+        }
+      }
+
+      svg{
+        width: 16px;
+        height: auto;
+        transition: all 0.3s;
+      }
+
+      &.active{
+        svg{
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .lang-list{
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      display: none;
+
+      li{
+        list-style: none;
+        text-transform: uppercase;
+        transition: all 0.3s;
+        padding: 2px 5px;
+        backdrop-filter: blur(10px);
+        background-color: rgba(15, 15, 15, 0.3);
+
+        a{
+          text-transform: uppercase;
+          transition: all 0.3s;
+          color: var(--color-white) !important;
+          letter-spacing: 0.02em;
+          font-size: 16px;
+          font-family: var(--f-TTFN-r);
+
+          @media(max-width: 767px){
+            font-size: 14px;
+          }
+        }
+
+        &.current-lang{
+          display: none;
+        }
+      }
+    }
+
+  }
+}

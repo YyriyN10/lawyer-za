@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "yuna-blocks/our-approach-inner",
+  "version": "0.1.0",
+  "title": "Внутрішня картка",
+  "category": "yuna-inner-block-category",
+  "icon": "dashicons-block-default",
+  "description": "Внутрішня картка",
+  "example": {},
+  "attributes": {
+    "itemIconUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "itemIconId": {
+      "type": "number",
+      "default": 0
+    },
+    "itemIconAlt": {
+      "type": "number",
+      "default": 0
+    },
+    "itemName": {
+      "type": "string"
+    },
+    "itemDescription": {
+      "type": "string"
+    },
+    "blockIndex": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "supports": {
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "html": false
+
+  },
+  "parent": ["yuna-blocks/our-approach"],
+  "textdomain": "yuna",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
+
+

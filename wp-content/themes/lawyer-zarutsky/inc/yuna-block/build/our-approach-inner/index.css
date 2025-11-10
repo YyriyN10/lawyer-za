@@ -1,0 +1,31 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/our-approach-inner/editor.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+/* зону видно навіть коли вона порожня */
+.options-area {
+  height: 12px;
+  width: 12px;
+  position: relative;
+}
+
+/* робимо кнопку-аппендер завжди «клікабельною» і на виду */
+.yuna-option-appender {
+  height: 12px;
+  width: 12px;
+  margin-right: 70px;
+  display: inline-flex;
+  align-items: center;
+  /* інколи тема/плагіни приховують appender */
+}
+.yuna-option-appender .block-editor-button-block-appender,
+.yuna-option-appender .block-list-appender {
+  display: inline-flex !important;
+}
+
+/*# sourceMappingURL=index.css.map*/

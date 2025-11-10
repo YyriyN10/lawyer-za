@@ -1,0 +1,135 @@
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/get-category/style.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-yuna-blocks-our-services {
+  background-color: #ffffff;
+}
+.wp-block-yuna-blocks-our-services .block-title {
+  margin-bottom: 60px;
+}
+@media (max-width: 992px) {
+  .wp-block-yuna-blocks-our-services .block-title {
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 575px) {
+  .wp-block-yuna-blocks-our-services .block-title {
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 440px) {
+  .wp-block-yuna-blocks-our-services .block-title {
+    text-align: center;
+  }
+}
+.wp-block-yuna-blocks-our-services .slider-wrapper {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 33px;
+}
+.wp-block-yuna-blocks-our-services .slider .slick-track {
+  display: flex;
+}
+@media (max-width: 575px) {
+  .wp-block-yuna-blocks-our-services .slider {
+    width: 180vw;
+  }
+}
+.wp-block-yuna-blocks-our-services .slider .slick-dots {
+  margin-top: 20px;
+}
+.wp-block-yuna-blocks-our-services .slide {
+  border-radius: 35px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 15px;
+  height: auto;
+}
+.wp-block-yuna-blocks-our-services .slide .pic-wrapper {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+.wp-block-yuna-blocks-our-services .slide:after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(0deg, #000 0%, rgba(115, 115, 115, 0) 50.23%);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: 2;
+}
+.wp-block-yuna-blocks-our-services .slide .name {
+  font-family: "Involve-Bold";
+  line-height: 1.1;
+  margin-bottom: 0;
+  font-size: clamp(18px, 1.15vw, 22px);
+  position: absolute;
+  z-index: 3;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  color: #ffffff;
+}
+@media (max-width: 1400px) {
+  .wp-block-yuna-blocks-our-services .slide .name {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+.wp-block-yuna-blocks-our-services .buttons-wrapper {
+  display: flex;
+  align-items: center;
+}
+.wp-block-yuna-blocks-our-services .slider-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+@media (max-width: 575px) {
+  .wp-block-yuna-blocks-our-services .slider-controls {
+    display: none;
+  }
+}
+.wp-block-yuna-blocks-our-services .slider-controls .control {
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F3F3F3;
+  width: 75px;
+  height: 75px;
+}
+@media (max-width: 767px) {
+  .wp-block-yuna-blocks-our-services .slider-controls .control {
+    width: 60px;
+    height: 60px;
+  }
+}
+.wp-block-yuna-blocks-our-services .slider-controls .control svg {
+  width: 23px;
+  height: auto;
+}
+@media (max-width: 767px) {
+  .wp-block-yuna-blocks-our-services .slider-controls .control svg {
+    width: 18px;
+  }
+}
+.wp-block-yuna-blocks-our-services .slider-controls .control svg path {
+  transition: all 0.3s;
+}
+.wp-block-yuna-blocks-our-services .slider-controls .control:hover path {
+  fill: #0F0F0F;
+}
+
+/*# sourceMappingURL=style-index.css.map*/
