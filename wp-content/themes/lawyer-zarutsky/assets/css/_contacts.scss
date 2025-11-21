@@ -1,0 +1,33 @@
+.page-template-template-contacts{
+  .breadcrumbs{
+    background-color: var(--color-white-bg);
+  }
+}
+
+.contacts-page,
+.blog-main-screen{
+  padding-top: 142px;
+  padding-bottom: 142px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-white);
+
+  @media(max-width: 767px){
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  @media(max-width: 440px){
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .main-title{
+    margin-bottom: 16px;
+  }
+
+  .slogan{
+    margin-bottom: 0;
+  }
+}

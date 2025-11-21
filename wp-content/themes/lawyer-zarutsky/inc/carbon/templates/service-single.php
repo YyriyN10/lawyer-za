@@ -16,7 +16,7 @@
 				         } )
 
 								->add_fields(array(
-									Field::make_text('service_single_page_main_btn_text'.yuna_lang_prefix(), 'Текст кнлпки на головному екрані')
+									Field::make_text('service_single_page_main_btn_text'.yuna_lang_prefix(), 'Текст кнопки на головному екрані')
 								))
 
 									->add_tab('Коротко про напрямок', array(
@@ -27,23 +27,41 @@
 									))
 
 									->add_tab('Опис послуги', array(
-										Field::make_rich_text('service_single_page_service_info'.yuna_lang_prefix(), 'Тексти опису послуги')
-										     ->set_settings([
-											     'media_buttons' => false,
-										     ]),
+										Field::make_rich_text('service_single_page_service_info_title'.yuna_lang_prefix(), 'Заголовок блоку')
+											->set_settings([
+												'media_buttons' => false,
+											])
+											->set_width(40),
+
+										Field::make_complex('service_single_page_service_info_list'.yuna_lang_prefix(), 'Перелік складових')
+												->set_width(60)
+												->add_fields(array(
+													Field::make_text('name', 'Назва'),
+													Field::make_rich_text('description', 'Короткий опис')
+														->set_settings([
+															'media_buttons' => false,
+														]),
+												))
+
 									))
 
 									->add_tab( 'Заклик до дії' , array(
 										Field::make_text('service_single_page_call_title'.yuna_lang_prefix(), 'Заголовок блоку')
-										     ->set_width(33),
+										     ->set_width(50),
 										Field::make_text('service_single_page_call_text'.yuna_lang_prefix(), 'Текст блоку')
-										     ->set_width(33),
+										     ->set_width(50),
 										Field::make_text('service_single_page_call_btn_text'.yuna_lang_prefix(), 'Текст кнопки')
-										     ->set_width(33),
+										     ->set_width(50),
+										Field::make_image('service_single_page_call_image'.yuna_lang_prefix(), 'Зображення')
+												->set_width(50)
+												->set_value_type('url')
 									) )
 
 									->add_tab( 'Кейси' , array(
-										Field::make_text('service_single_page_cases_title'.yuna_lang_prefix(), 'Заголовок блоку')
+										Field::make_rich_text('service_single_page_cases_title'.yuna_lang_prefix(), 'Заголовок блоку')
+											->set_settings([
+												'media_buttons' => false,
+											])
 											->set_width(30),
 										Field::make_text('service_single_page_cases_sub_title'.yuna_lang_prefix(), 'Підзаголовок блоку')
 										     ->set_width(70),
@@ -56,10 +74,14 @@
 										     ) ),
 									) )
 									->add_tab( 'Статті' , array(
-										Field::make_text('service_single_page_blog_title'.yuna_lang_prefix(), 'Заголовок блоку')
+										Field::make_rich_text('service_single_page_blog_title'.yuna_lang_prefix(), 'Заголовок блоку')
+											->set_settings([
+												'media_buttons' => false,
+											])
 											->set_width(30),
 										Field::make_association('service_single_page_blog_list', 'Перелік статей по послузі')
 												->set_width(70)
+												->set_max(2)
 										     ->set_types( array(
 											     array(
 												     'type'      => 'post',
@@ -88,5 +110,16 @@
 										     ->set_settings([
 											     'media_buttons' => false,
 										     ]),
-									) );
+									) )
+									->add_tab('Батьківська сторінка', array(
+										Field::make_association('service_single_page_parent', 'Батьківська сторінка')
+										     ->set_required(true)
+										     ->set_max(1)
+										     ->set_types( array(
+											     array(
+												     'type' => 'post',
+												     'post_type' => 'page',
+											     ),
+										     ) )
+									));
 	}

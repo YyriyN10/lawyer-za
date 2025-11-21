@@ -1,0 +1,51 @@
+.breadcrumbs{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-radius: 12px 12px 0 0;
+  margin-top: -12px;
+  position: relative;
+  z-index: 5;
+
+  .crumbs-list{
+    margin: 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .crumb{
+      list-style: none;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+
+      @media(max-width: 440px){
+        font-size: 14px;
+      }
+
+      a{
+        color: var(--color-dark-gray) !important;
+        transition: all 0.3s;
+
+        &:hover{
+          color: var(--color-black) !important;
+        }
+      }
+
+      svg{
+        width: 16px;
+        height: auto;
+        margin-left: 8px;
+
+        @media(max-width: 440px){
+          width: 14px;
+        }
+      }
+
+      &.current-crumb{
+        font-family: var(--f-M-SB);
+        letter-spacing: 0.02em;
+      }
+    }
+  }
+}

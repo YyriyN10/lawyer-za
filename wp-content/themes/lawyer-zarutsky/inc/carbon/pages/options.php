@@ -41,8 +41,12 @@
 		         ) )
 
 		         ->add_tab( __( 'Текст сторінки 404' ), array(
-			         Field::make_text('yuna_option_404_title'.yuna_lang_prefix(), 'Заголовок'),
-			         Field::make_text('yuna_option_404_text'.yuna_lang_prefix(), 'Текст'),
+			         Field::make_text('yuna_option_404_text'.yuna_lang_prefix(), 'Текст')
+		              ->set_width(50),
+			         Field::make_image('yuna_option_404_image', 'Зображення')
+			            ->set_width(50)
+			            ->set_value_type('url')
+
 
 		         ) )
 		         /*->add_tab( __( 'Подяка за відправку форми' ), array(
@@ -94,6 +98,15 @@
 								     ->set_palette( array( '#F9FCF5', '#F9FCF5', '#034F43', '#02B513', '#F2682C') )
 								     ->set_width(50),
 							))
+							->add_tab( __( 'Суди' ), array(
+				         Field::make_text('judicature_main_title'.yuna_lang_prefix(), 'Назва категорії на головній сторінці'),
+				         Field::make_text('judicature_main_description'.yuna_lang_prefix(), 'Коротко про категорію'),
+								 Field::make_rich_text('judicature_main_experience'.yuna_lang_prefix(), 'Досвід')
+									 ->set_settings([
+										 'media_buttons' => false,
+									 ]),
+
+			         ) )
 		         ->add_tab( __( 'Налаштування інтеграції форм' ), array(
 			         /*Field::make_separator('yuna_option_form_integration_1', 'Інтеграція з поштою'),
 			         Field::make_complex('yuna_option_form_integration_email_list', 'Електронні скриньки')

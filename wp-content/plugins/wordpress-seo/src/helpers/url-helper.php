@@ -30,7 +30,7 @@ class Url_Helper {
 			return $home_url;
 		}
 
-		if ( $home_path === null ) { // Home at site root, always slash.
+		if ( \is_null( $home_path ) ) { // Home at site root, always slash.
 			return \trailingslashit( $home_url );
 		}
 
@@ -106,7 +106,8 @@ class Url_Helper {
 	 */
 	public function get_url_path( $url ) {
 		if ( \is_string( $url ) === false
-			&& ( \is_object( $url ) === false || \method_exists( $url, '__toString' ) === false )
+			&& \is_object( $url ) === false
+			|| ( \is_object( $url ) === true && \method_exists( $url, '__toString' ) === false )
 		) {
 			return '';
 		}
@@ -123,7 +124,8 @@ class Url_Helper {
 	 */
 	public function get_url_host( $url ) {
 		if ( \is_string( $url ) === false
-			&& ( \is_object( $url ) === false || \method_exists( $url, '__toString' ) === false )
+			&& \is_object( $url ) === false
+			|| ( \is_object( $url ) === true && \method_exists( $url, '__toString' ) === false )
 		) {
 			return '';
 		}
@@ -185,7 +187,7 @@ class Url_Helper {
 
 		$base_url = \trailingslashit( $url_parts['scheme'] . '://' . $url_parts['host'] );
 
-		if ( \is_string( $path ) ) {
+		if ( ! \is_null( $path ) ) {
 			$base_url .= \ltrim( $path, '/' );
 		}
 
@@ -213,7 +215,7 @@ class Url_Helper {
 			return ( $is_image ) ? SEO_Links::TYPE_EXTERNAL_IMAGE : SEO_Links::TYPE_EXTERNAL;
 		}
 
-		if ( $home_url === null ) {
+		if ( \is_null( $home_url ) ) {
 			$home_url = \wp_parse_url( \home_url() );
 		}
 

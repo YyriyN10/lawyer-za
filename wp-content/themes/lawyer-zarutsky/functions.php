@@ -167,4 +167,10 @@ require get_template_directory() . '/inc/poly-translation.php';
  */
 require get_template_directory() . '/inc/custom-login.php';
 
+/**
+ * Form integration
+ */
+require get_template_directory() . '/inc/form-integration.php';
+
+
 

@@ -19,6 +19,9 @@
 					         Field::make_text('services_page_main_title'.yuna_lang_prefix(), 'Головний заголовок сторінки')
 					              ->set_width(30),
 					         Field::make_text('services_page_main_text'.yuna_lang_prefix(), 'Текст головного екрану')
-					              ->set_width(70),
+					              ->set_width(40),
+					         Field::make_text('services_page_main_btn_text'.yuna_lang_prefix(), 'Текст кнопки')
+					              ->set_width(30),
+
 				         ));
 	}

@@ -1,9 +1,11 @@
 /*--- Basic styles ---*/
-html{ overflow-y: scroll !important; }
+html{
+  overflow-y: scroll !important;
+}
 
 body{
   font-family: var(--f-main);
-  color: #2c2e29;
+  color: var(--color-black);
   font-size: 18px;
   line-height: 1.22;
   padding-right: 0 !important;

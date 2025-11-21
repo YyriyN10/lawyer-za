@@ -64,6 +64,13 @@
 				false
 			);
 
+			pll_register_string(
+				'lawyer_zarutsky_btn_go_home',
+				'Повернутись на головну',
+				'Кнопки',
+				false
+			);
+
 			/**
 			 * Text
 			 */
@@ -85,6 +92,29 @@
 				'Текст',
 				false
 			);
+
+			pll_register_string(
+				'lawyer_zarutsky_text_exp',
+				'Досвід',
+				'Текст',
+				false
+			);
+
+			pll_register_string(
+				'lawyer_zarutsky_text_exp_our',
+				'Наш досвід',
+				'Текст',
+				false
+			);
+
+			pll_register_string(
+				'lawyer_zarutsky_judicature',
+				'Суди',
+				'Текст',
+				false
+			);
+
+
 
 
 			/**

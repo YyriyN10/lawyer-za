@@ -15,8 +15,6 @@
 
 	$officeMap = carbon_get_theme_option('office_map_link');
 
-
-
 ?>
 </main>
 	<footer class="site-footer indent-top-small indent-bottom-small" id="contact-form">
@@ -27,19 +25,21 @@
 
         if( !empty($contactsTitle) ):?>
           <div class="row">
-            <h2 class="block-title col-12"><?php echo str_replace(['<p>', '</p>'], '', $contactsTitle );?></h2>
+            <h2 class="block-title col-12" data-aos="fade-up" data-aos-duration="300">
+              <?php echo str_replace(['<p>', '</p>'], '', $contactsTitle );?>
+            </h2>
           </div>
       <?php endif;?>
 
       <div class="row">
 	      <?php if( !empty($officeMap) ):?>
-          <div class="map-wrapper col-md-6">
+          <div class="map-wrapper col-md-6" data-aos="fade-up" data-aos-duration="300">
             <div class="inner">
               <iframe src="<?php echo $officeMap;?>" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
 	      <?php endif;?>
-        <div class="form-wrapper col-md-6">
+        <div class="form-wrapper col-md-6" data-aos="fade-up" data-aos-duration="300">
           <div class="inner text-center">
             <?php
               $formTitle = carbon_get_theme_option('yuna_option_form_title'.yuna_lang_prefix());
@@ -63,44 +63,44 @@
         <div class="row">
           <div class="content col-12">
 	          <?php if( !empty($officeAddress) ):?>
-              <div class="contacts-item">
+              <div class="contacts-item" data-aos="fade-up" data-aos-duration="300">
                 <h3 class="title card-title"><?php echo esc_html( pll__( 'Адреса' ) ); ?></h3>
                 <p class="contact-item"><?php echo $officeAddress;?></p>
               </div>
 	          <?php endif;?>
 	          <?php if( !empty($workSchedule) ):?>
-              <div class="contacts-item">
+              <div class="contacts-item" data-aos="fade-up" data-aos-duration="300">
                 <h3 class="title card-title"><?php echo esc_html( pll__( 'Графік роботи' ) ); ?></h3>
                 <p class="contact-item"><?php echo $workSchedule;?></p>
               </div>
 	          <?php endif;?>
 
-            <?php if( !empty($phoneList) || !empty($emailList) ):?>
-              <div class="contacts-item">
+            <?php if( !empty($phoneList)):?>
+              <div class="contacts-item" data-aos="fade-up" data-aos-duration="300">
                 <h3 class="title card-title"><?php echo esc_html( pll__( 'Контакти' ) ); ?></h3>
-                <?php if( !empty($phoneList) ):?>
-                  <?php foreach( $phoneList as $phone ):
+	              <?php foreach( $phoneList as $phone ):
+		              $phoneToColl = preg_replace( '/[^0-9]/', '', $phone['phone_number']);
+		              ?>
+		              <?php if( str_contains(strval($phone['phone_number']), '+') ):?>
+                  <a href="tel:+<?php echo $phoneToColl;?>" rel="nofollow" class="contact-item"><?php echo $phone['phone_number'];?></a>
+	              <?php else :?>
+                  <a href="tel:<?php echo $phoneToColl;?>" rel="nofollow" class="contact-item"><?php echo $phone['phone_number'];?></a>
+	              <?php endif;?>
 
-                    $phoneToColl = preg_replace( '/[^0-9]/', '', $phone['phone_number']);
-                    ?>
-
-                    <?php if( str_contains(strval($phone['phone_number']), '+') ):?>
-                    <a href="tel:+<?php echo $phoneToColl;?>" rel="nofollow" class="contact-item"><?php echo $phone['phone_number'];?></a>
-                  <?php else :?>
-                    <a href="tel:<?php echo $phoneToColl;?>" rel="nofollow" class="contact-item"><?php echo $phone['phone_number'];?></a>
-                  <?php endif;?>
-
-                  <?php endforeach;?>
-                <?php endif;?>
-                <?php if( !empty($emailList) ):?>
-                  <?php foreach( $emailList as $email ):?>
-                    <a href="mailto:<?php echo antispambot($email['email'], true) ;?>" rel="nofollow" class="contact-item">
-                      <?php echo antispambot($email['email'], false) ;?>
-                    </a>
-                  <?php endforeach;?>
-                <?php endif;?>
+	              <?php endforeach;?>
               </div>
             <?php endif;?>
+	          <?php if( !empty($emailList) ):?>
+              <div class="contacts-item" data-aos="fade-up" data-aos-duration="300">
+                <h3 class="title card-title">Email</h3>
+	              <?php foreach( $emailList as $email ):?>
+                  <a href="mailto:<?php echo antispambot($email['email'], true) ;?>" rel="nofollow" class="contact-item">
+			              <?php echo antispambot($email['email'], false) ;?>
+                  </a>
+	              <?php endforeach;?>
+              </div>
+	          <?php endif;?>
+
         </div>
       </div>
 		<?php endif;?>

@@ -35,3 +35,14 @@
 	}
 
 	add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
+
+	add_action( 'wp_enqueue_scripts', 'lawyer_zarutsky_ajax_data', 99 );
+	function lawyer_zarutsky_ajax_data(){
+
+		wp_localize_script('lawyer-zarutsky-main-js', 'lawyer_zarutsky_ajax',
+			array(
+				'url' => admin_url('admin-ajax.php')
+			)
+		);
+
+	}

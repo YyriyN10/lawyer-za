@@ -174,10 +174,7 @@ class HowTo extends Abstract_Schema_Piece {
 		}
 
 		$this->add_duration( $data, $block['attrs'] );
-
-		if ( isset( $block['attrs']['steps'] ) ) {
-			$this->add_steps( $data, $block['attrs']['steps'] );
-		}
+		$this->add_steps( $data, $block['attrs']['steps'] );
 
 		$data = $this->helpers->schema->language->add_piece_language( $data );
 

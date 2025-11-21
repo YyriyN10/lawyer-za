@@ -66,9 +66,9 @@
     gap: 24px;
 
     .contacts-item{
-      width: calc(33.33% - (48px / 3));
+      width: calc(25% - (72px / 4));
 
-      @media(max-width: 767px){
+      @media(max-width: 992px){
         width: calc(50% - 12px);
       }
 
@@ -126,6 +126,50 @@
       a{
         color: var(--color-black)!important;
       }
+    }
+  }
+
+  &.contacts-footer{
+    .block-title{
+      margin-bottom: 24px;
+    }
+
+    .image-wrapper{
+      @media(max-width: 767px){
+        margin-bottom: 24px;
+      }
+
+      .inner{
+        overflow: hidden;
+        border-radius: 20px;
+        height: 100%;
+      }
+    }
+
+    .map-wrapper{
+      margin-top: 40px;
+
+      @media(max-width: 440px){
+        margin-top: 24px;
+      }
+      .inner{
+        height: 433px;
+
+        @media(max-width: 767px){
+          height: 380px;
+        }
+      }
+    }
+  }
+
+  &.footer-404{
+    border-radius: 12px 12px 0 0;
+    margin-top: -12px;
+    position: relative;
+    z-index: 3;
+
+    .content{
+      padding-top: 0;
     }
   }
 }

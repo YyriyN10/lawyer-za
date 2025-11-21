@@ -1,0 +1,130 @@
+
+.single-judicature{
+  .breadcrumbs{
+    background-color: var(--color-white-bg);
+  }
+}
+
+/*--- judicature-single-main-screen ---*/
+
+.judicature-single-main-screen{
+  padding-top: 142px;
+  padding-bottom: 142px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media(max-width: 767px){
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  @media(max-width: 440px){
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .content{
+    margin-bottom: 0;
+  }
+
+  .category{
+    margin-bottom: 16px;
+  }
+
+  .main-title{
+    margin-bottom: 0;
+  }
+}
+
+/*--- judicature-info ---*/
+
+.judicature-info{
+  background-color: var(--color-white-bg);
+
+  .row{
+    align-items: flex-start;
+  }
+
+  .contacts-content{
+    display: grid;
+    gap: 24px;
+
+    .contact-type{
+      width: 100%;
+    }
+
+    .name{
+      margin-bottom: 16px;
+    }
+
+    .judicature-contacts-item{
+      color: var(--color-dark-gray) !important;
+      margin-bottom: 8px;
+    }
+  }
+
+  .map{
+    @media(max-width: 767px){
+      margin-top: 24px;
+    }
+
+    .inner{
+      overflow: hidden;
+      border-radius: 12px;
+      height: 405px;
+      position: relative;
+
+      @media(max-width: 767px){
+        height: 350px;
+      }
+
+      iframe{
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+/*--- judicature-source ---*/
+
+.judicature-source{
+  background-color: var(--color-white-bg);
+
+  .block-title{
+    margin-bottom: 24px;
+  }
+
+  .source-list{
+    gap: 24px;
+
+    .source{
+      background-color: #F3F3F5;
+      border-radius: 12px;
+      padding: 24px;
+      position: relative;
+      width: calc(33.33% - (48px / 3));
+
+      @media(max-width: 992px){
+        width: calc(50% - 12px);
+      }
+
+      @media(max-width: 575px){
+        width: 100%;
+      }
+
+      .name{
+        margin-bottom: 80px;
+      }
+
+      .more-btn{
+        position: absolute;
+        left: 24px;
+        bottom: 24px;
+      }
+    }
+  }
+}

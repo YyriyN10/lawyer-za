@@ -155,6 +155,119 @@ jQuery(function($) {
 
   $("input[type=tel]").mask("+38(099)999-99-99");
 
+  /**
+   * Form service
+   */
+
+  $('.more-btn').on('click', function (){
+
+    let currentService = $(this).attr('data-service');
+
+    $('form input[name = service]').val( currentService );
+  });
+
+  /**
+   * UTM
+   */
+
+  let utmList = sessionStorage.getItem("utmList");
+
+  if ( utmList ){
+    storageUtm(utmList);
+  }else{
+    let currentUtmList = window.location.search.substring(1);
+
+    if ( currentUtmList != '' ){
+      sessionStorage.setItem("utmList", currentUtmList);
+
+      storageUtm(currentUtmList);
+    }
+  }
+
+  function storageUtm(utmList){
+
+    let utmArray = utmList.split('&');
+
+    function checkUtm(utmName) {
+      for (let i = 0; i < utmArray.length; i++) {
+        let pair = utmArray[i].split('=');
+        if (decodeURIComponent(pair[0]) == utmName) {
+          return decodeURIComponent(pair[1]);
+        }
+      }
+    }
+
+    let utm_source = checkUtm('utm_source') ? checkUtm('utm_source') : "";
+    let utm_medium = checkUtm('utm_medium') ? checkUtm('utm_medium') : "";
+    let utm_campaign = checkUtm('utm_campaign') ? checkUtm('utm_campaign') : "";
+    let utm_term = checkUtm('utm_term') ? checkUtm('utm_term') : "";
+    let utm_content = checkUtm('utm_content') ? checkUtm('utm_content') : "";
+
+
+    let forms = $('form');
+    $.each(forms, function (index, form) {
+      let thisForm = $(form);
+      thisForm.append('<input type="hidden" name="utm_source" value="' + utm_source + '">');
+      thisForm.append('<input type="hidden" name="utm_medium" value="' + utm_medium + '">');
+      thisForm.append('<input type="hidden" name="utm_campaign" value="' + utm_campaign + '">');
+      thisForm.append('<input type="hidden" name="utm_term" value="' + utm_term + '">');
+      thisForm.append('<input type="hidden" name="utm_content" value="' + utm_content + '">');
+
+      let thisPageUrl = thisForm.find('input[name = page-url]').val();
+      thisForm.find('input[name = page-url]').val(thisPageUrl + '?' + utmList);
+    });
+  }
+
+  const formModal = $('#formModal');
+  const thankModal = $('#thankModal');
+
+
+  $('form').on('submit', function (e) {
+    e.preventDefault();
+
+    const thisForm = $(this);
+
+    thisForm.find('.button').addClass('form-accepted');
+
+    sessionStorage.removeItem("utmList");
+
+    let name = thisForm.find('input[name = name]').val();
+    let phone = thisForm.find('input[name = phone]').val();
+    let email = thisForm.find('input[name = email]').val();
+    let action = thisForm.find('input[name = action]').val();
+    let service = thisForm.find('input[name = service]').val();
+    let pageName = thisForm.find('input[name = page-name]').val();
+
+    let utmSource = thisForm.find('input[name = utm_source]').val();
+    let utmMedium = thisForm.find('input[name = utm_medium]').val();
+    let utmCampaign = thisForm.find('input[name = utm_campaign]').val();
+    let utmTerm = thisForm.find('input[name = utm_term]').val();
+    let utmContent = thisForm.find('input[name = utm_content]').val();
+
+    const formData = {
+      action: action,
+      name: name,
+      phone: phone,
+      email: email,
+      pageName: service,
+      utmSource: utmSource,
+      utmMedium: utmMedium,
+      utmCampaign: utmCampaign,
+      utmTerm: utmTerm,
+      utmContent: utmContent,
+    }
+
+    $.post( lawyer_zarutsky_ajax.url, formData, function(response) {
+
+      console.log(response);
+
+      formModal.modal('hide');
+      thankModal.modal('show');
+
+    });
+
+  })
+
 
 
 

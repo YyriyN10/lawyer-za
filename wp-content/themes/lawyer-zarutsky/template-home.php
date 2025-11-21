@@ -30,12 +30,16 @@
 			<div class="container">
 				<div class="row">
 					<div class="content col-lg-6 col-12">
-						<h1 class="main-title page-title"><?php echo $mainScreenTitle;?></h1>
+						<h1 class="main-title page-title" data-aos="zoom-out" data-aos-duration="300" data-aos-delay="100">
+              <?php echo $mainScreenTitle;?>
+            </h1>
 						<?php if( !empty($mainScreenSlogan) ):?>
-							<p class="slogan"><?php echo $mainScreenSlogan;?></p>
+							<p class="slogan" data-aos="zoom-out" data-aos-duration="300" data-aos-delay="150">
+                <?php echo $mainScreenSlogan;?>
+              </p>
 						<?php endif;?>
 						<?php if( !empty($mainScreenBtnText) ):?>
-							<div class="button white-btn" data-bs-toggle="modal" data-bs-target="#formModal">
+							<div class="button white-btn" data-bs-toggle="modal" data-bs-target="#formModal" data-aos="zoom-out" data-aos-duration="300" data-aos-delay="200">
                 <span><?php echo $mainScreenBtnText; ?></span>
 							</div>
 						<?php endif;?>
@@ -47,8 +51,8 @@
 					if (!empty($ourNumbersList)):?>
             <div class="row">
               <ul class="card-list-wrapper numbers-list col-12">
-		            <?php foreach( $ourNumbersList as $number ):?>
-                  <li class="card-item item">
+		            <?php foreach( $ourNumbersList as $index=>$number ):?>
+                  <li class="card-item item" data-aos="fade-up" data-aos-duration="300" data-aos-delay="<?php echo ($index + 1) * 150;?>">
 				            <?php if( !empty($number['name']) ):?>
                       <p class="number card-title"><?php echo $number['name'];?></p>
 				            <?php endif;?>
@@ -90,12 +94,14 @@
 		<section class="our-services indent-top-big">
 			<div class="container indent-bottom-big">
 				<div class="row">
-					<h2 class="block-title col-12"><?php echo str_replace(['<p>', '</p>'], '', $allServicesTitle );?></h2>
+					<h2 class="block-title col-12" data-aos="fade-up" data-aos-duration="300">
+            <?php echo str_replace(['<p>', '</p>'], '', $allServicesTitle );?>
+          </h2>
 				</div>
 				<div class="row">
 					<ul class="card-list-wrapper services-list col-12">
-						<?php foreach( $serviceSubcat as $subcat ):?>
-							<li class="card-item service-category">
+						<?php foreach( $serviceSubcat as $index=>$subcat ):?>
+							<li class="card-item service-category" data-aos="fade-up" data-aos-duration="300">
 								<h3 class="cat-name card-title"><?php echo $subcat->name;?></h3>
 								<?php if( !empty($subcat->description) ):?>
 									<p class="cat-description"><?php echo $subcat->description;?></p>
@@ -116,6 +122,26 @@
 								</a>
 							</li>
 						<?php endforeach;?>
+            <?php
+              $judicatureTile = carbon_get_theme_option('judicature_main_title'.yuna_lang_prefix());
+	            $judicatureDescription = carbon_get_theme_option('judicature_main_description'.yuna_lang_prefix());
+
+              if( !empty($judicatureTile) && !empty($judicatureDescription) ):?>
+                <li class="card-item service-category" data-aos="fade-up" data-aos-duration="300">
+                  <h3 class="cat-name card-title"><?php echo $judicatureTile;?></h3>
+		              <?php if( !empty($judicatureDescription) ):?>
+                    <p class="cat-description"><?php echo $judicatureDescription;?></p>
+		              <?php endif;?>
+                  <a href="<?php echo get_permalink($allServicesLink[0]['id']);?>#judicature" target="_blank" class="more-btn">
+		                <?php echo esc_html( pll__( 'Дізнатись більше' ) ); ?>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M5 2L10.1958 6.76285C10.6282 7.15918 10.6282 7.84082 10.1958 8.23715L5 13" stroke="#0F0F0F" stroke-linecap="round"/>
+                    </svg>
+                  </a>
+
+                </li>
+            <?php endif;?>
+
 					</ul>
 				</div>
 			</div>
@@ -128,12 +154,16 @@
           <div class="container">
             <div class="row">
               <div class="more-services text-center col-12">
-                <h3 class="block-title title"><?php echo $moreServiceQuestion;?></h3>
+                <h3 class="block-title title" data-aos="zoom-out" data-aos-duration="300" >
+                  <?php echo $moreServiceQuestion;?>
+                </h3>
 			          <?php if( !empty($moreServiceCall) ):?>
-                  <p class="call"><?php echo $moreServiceCall;?></p>
+                  <p class="call" data-aos="zoom-out" data-aos-duration="300" data-aos-delay="100">
+                    <?php echo $moreServiceCall;?>
+                  </p>
 			          <?php endif;?>
 
-                <div class="button white-btn" data-bs-toggle="modal" data-bs-target="#formModal">
+                <div class="button white-btn" data-bs-toggle="modal" data-bs-target="#formModal" data-aos="zoom-out" data-aos-duration="300" data-aos-delay="150">
                   <span><?php echo $moreServiceBtnText; ?></span>
                 </div>
               </div>
@@ -156,10 +186,12 @@
 		<section class="our-approach indent-top-big indent-bottom-big">
 			<div class="container">
 				<div class="row">
-					<h2 class="block-title col-12"><?php echo $ourApproachTitle;?></h2>
+					<h2 class="block-title col-12" data-aos="fade-up" data-aos-duration="300">
+            <?php echo $ourApproachTitle;?>
+          </h2>
 				</div>
 				<div class="row">
-          <div class="image-wrapper col-lg-6">
+          <div class="image-wrapper col-lg-6" data-aos="fade-up" data-aos-duration="300">
             <div class="inner">
               <img
                   class="lazy object-fit"
@@ -178,7 +210,7 @@
           </div>
 
 					<div class="how-wrapper col-lg-6">
-            <div class="how-item we-work">
+            <div class="how-item we-work" data-aos="fade-up" data-aos-duration="300">
 	            <?php if( !empty($ourApproachHowWorkTitle) ):?>
                 <h3 class="title card-title">
                   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -214,7 +246,7 @@
 		            <?php endforeach;?>
               </ul>
             </div>
-            <div class="how-item we-not-work">
+            <div class="how-item we-not-work" data-aos="fade-up" data-aos-duration="300">
 	            <?php if( !empty($ourApproachNotWorkTitle) ):?>
                 <h3 class="title card-title">
                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -260,7 +292,6 @@
 <?php
   $casesTitle = carbon_get_post_meta(get_the_ID(), 'home_page_cases_title'.yuna_lang_prefix());
 
-
   $casesArgs = array(
   	'posts_per_page' => -1,
   	'orderby' 	 => 'date',
@@ -275,9 +306,11 @@
     <section class="our-cases indent-top-big indent-bottom-big">
       <div class="container">
         <div class="row">
-          <h2 class="block-title col-12"><?php echo str_replace(['<p>', '</p>'], '', $casesTitle );?></h2>
+          <h2 class="block-title col-12" data-aos="fade-up" data-aos-duration="300">
+            <?php echo str_replace(['<p>', '</p>'], '', $casesTitle );?>
+          </h2>
         </div>
-        <div class="row">
+        <div class="row" data-aos="fade-up" data-aos-duration="300">
           <div class="slider-wrapper col-12">
             <div class="slider" id="cases-slider">
 	            <?php while ( $casesList->have_posts() ) : $casesList->the_post();
@@ -346,11 +379,15 @@
 			<div class="container">
 				<div class="row">
           <div class="content col-12 text-center">
-            <h2 class="block-title"><?php echo $callTitle;?></h2>
+            <h2 class="block-title" data-aos="zoom-out" data-aos-duration="300">
+              <?php echo $callTitle;?>
+            </h2>
 	          <?php if( $callText ):?>
-              <p class="call"><?php echo $callText;?></p>
+              <p class="call" data-aos="zoom-out" data-aos-duration="300" data-aos-delay="100">
+                <?php echo $callText;?>
+              </p>
 	          <?php endif;?>
-            <div class="button white-btn" data-bs-toggle="modal" data-bs-target="#formModal">
+            <div class="button white-btn" data-bs-toggle="modal" data-bs-target="#formModal" data-aos="zoom-out" data-aos-duration="300" data-aos-delay="150">
 		          <?php echo $callBtnText; ?>
             </div>
           </div>
@@ -375,14 +412,16 @@
           <div class="content col-12 indent-top-big indent-bottom-big">
             <div class="text-wrapper">
 		          <?php if( !empty($aboutUsBlockTitle) ):?>
-                <h2 class="block-title"><?php echo $aboutUsBlockTitle;?></h2>
+                <h2 class="block-title" data-aos="fade-up" data-aos-duration="300">
+                  <?php echo $aboutUsBlockTitle;?>
+                </h2>
 		          <?php endif;?>
 
-              <div class="text">
+              <div class="text" data-aos="fade-up" data-aos-duration="300">
 			          <?php echo wpautop($aboutUsText);?>
               </div>
 		          <?php if( !empty($aboutUsLink) && !empty($aboutUsBtnText)):?>
-                <a href="<?php echo get_permalink($aboutUsLink[0]['id']);?>" target="_blank" class="more-btn">
+                <a href="<?php echo get_permalink($aboutUsLink[0]['id']);?>" target="_blank" class="more-btn" data-aos="fade-up" data-aos-duration="300">
 				          <?php echo $aboutUsBtnText;?>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M5 2L10.1958 6.76285C10.6282 7.15918 10.6282 7.84082 10.1958 8.23715L5 13" stroke="#0F0F0F" stroke-linecap="round"/>
@@ -392,9 +431,11 @@
             </div>
             <div class="image-wrapper">
 	            <?php if( !empty($aboutUsBlockTitle) ):?>
-                <h2 class="block-title"><?php echo $aboutUsBlockTitle;?></h2>
+                <h2 class="block-title" data-aos="fade-up" data-aos-duration="300">
+                  <?php echo $aboutUsBlockTitle;?>
+                </h2>
 	            <?php endif;?>
-              <div class="pic-wrapper pic-1">
+              <div class="pic-wrapper pic-1" data-aos="fade-up" data-aos-duration="300" data-aos-delay="100">
                 <img
                     class="lazy object-fit"
                     data-src="<?php echo wp_get_attachment_image_src($aboutUsImage1, 'full')[0];?>"
@@ -408,7 +449,7 @@
                 >
               </div>
               <?php if( !empty($aboutUsImage2) ):?>
-                <div class="pic-wrapper pic-2">
+                <div class="pic-wrapper pic-2" data-aos="fade-up" data-aos-duration="300" data-aos-delay="150">
                   <img
                       class="lazy object-fit"
                       data-src="<?php echo wp_get_attachment_image_src($aboutUsImage2, 'full')[0];?>"
@@ -436,12 +477,14 @@
 		<section class="our-steps indent-top-big indent-bottom-small">
 			<div class="container">
 				<div class="row">
-					<h2 class="block-title col-12"><?php echo str_replace(['<p>', '</p>'], '', $ourStepsTitle );?></h2>
+					<h2 class="block-title col-12" data-aos="fade-up" data-aos-duration="300">
+            <?php echo str_replace(['<p>', '</p>'], '', $ourStepsTitle );?>
+          </h2>
 				</div>
 				<div class="row">
 					<ol class="card-list-wrapper step-list col-12">
 						<?php foreach( $ourStepsList as $index=>$step ):?>
-							<li class="card-item step">
+							<li class="card-item step" data-aos="flip-left" data-aos-duration="500" data-aos-delay="<?php echo ($index + 1) * 200;?>">
                 <div class="icon-wrapper">
                   <img class="svg-pic" src="<?php echo $step['icon'];?>" alt="<?php echo $step['name'];?>">
                 </div>

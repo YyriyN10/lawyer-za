@@ -57,6 +57,38 @@ $site_logo = carbon_get_theme_option('yuna_option_logo');
 				        )
 			        );
 		        ?>
+            <?php
+	            $workSchedule = carbon_get_theme_option('work_schedule'.yuna_lang_prefix());
+	            $phoneList = carbon_get_theme_option('yuna_option_phone_list');
+	            $emailList = carbon_get_theme_option('yuna_option_email_list');
+	            $officeAddress = carbon_get_theme_option('offise_address'.yuna_lang_prefix());
+
+	            if (!empty($workSchedule) || !empty($phoneList) || !empty( $emailList) || !empty($officeAddress)):?>
+              <div class="mob-contacts">
+                <?php if( !empty($officeAddress) ):?>
+                  <p class="contact-item"><?php echo $officeAddress;?></p>
+                <?php endif;?>
+	              <?php if( !empty($workSchedule) ):?>
+                  <p class="contact-item"><?php echo $workSchedule;?></p>
+	              <?php endif;?>
+	              <?php foreach( $phoneList as $phone ):
+		              $phoneToColl = preg_replace( '/[^0-9]/', '', $phone['phone_number']);
+		              ?>
+		              <?php if( str_contains(strval($phone['phone_number']), '+') ):?>
+                  <a href="tel:+<?php echo $phoneToColl;?>" rel="nofollow" class="contact-item"><?php echo $phone['phone_number'];?></a>
+	              <?php else :?>
+                  <a href="tel:<?php echo $phoneToColl;?>" rel="nofollow" class="contact-item"><?php echo $phone['phone_number'];?></a>
+	              <?php endif;?>
+
+	              <?php endforeach;?>
+
+	              <?php foreach( $emailList as $email ):?>
+                  <a href="mailto:<?php echo antispambot($email['email'], true) ;?>" rel="nofollow" class="contact-item">
+			              <?php echo antispambot($email['email'], false) ;?>
+                  </a>
+	              <?php endforeach;?>
+              </div>
+            <?php endif;?>
           </nav>
 	        <?php if ( $langArgs ):?>
             <div class="lang-wrapper" id="lang-wrapper">

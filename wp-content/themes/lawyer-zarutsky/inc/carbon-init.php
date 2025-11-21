@@ -47,6 +47,9 @@
 	require ('carbon/templates/services.php');
 	require ('carbon/templates/contacts.php');
 	require ('carbon/templates/service-single.php');
+	require ('carbon/templates/news.php');
+	require ('carbon/templates/news-single.php');
+	require ('carbon/templates/judicature-single.php');
 	/**
 	 * Add in REST API
 	 */
